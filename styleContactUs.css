@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+header{
+    background-color: rgb(172, 170, 170);
+    align-items: center;
+    padding: 10px;
+    align-items: center;
+}
+nav {
+    flex-direction: row;
+    justify-content: end;
+    
+}
+
+p {
+    padding: 15px;
+
+}
+#message {
+        height: 100px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    justify-content:space-around;
+
+}
