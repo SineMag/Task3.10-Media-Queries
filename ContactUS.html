@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styleContactUs.css">
+</head>
+<body>
+
+    <div class="container" style="height: 90vh; background-image: linear-gradient(to top, white, grey);">
+    <header>
+        <a href="./index.html" id="portfButton"><button>Portfolio</button></a>
+    </header>
+
+
+    <section class="fill-info">
+        <p>Please enter your details below and we will get back to you!</p>
+        <form action="https://formspree.io/f/mzzvjvbk" method="POST">
+        
+            <label for="fname">First Name:</label><br>
+            <input type="text" id="fname" name="fname" required><br><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" name="lname" required><br><br>
+            <label for="email">Email:</label><br>
+            
+
+            <input type="text" id="email" name="email"required><br><br>
+            <label for="phone">Phone:</label><br>
+
+            <input type="text" id="phone" name="phone"required><br><br>
+            <label for="message">Message:</label><br>
+            <input type="text" id="message" name="message"><br><br>
+            <br>
+            <button type="submit">Send</button>
+        </form> 
+
+        
+
+            
+
+    </section>
+
+    <footer style="display: flex; flex-direction: row; align-items: center;
+    justify-items: start;">
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">WhatsApp</a>
+    </footer>
+    </div>
+
+    <script>
+const form = document.getElementById('form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+  result.innerHTML = "Please wait..."
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.innerHTML = "Form submitted successfully";
+            } else {
+                console.log(response);
+                result.innerHTML = json.message;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+        })
+        .then(function() {
+            form.reset();
+            setTimeout(() => {
+                result.style.display = "none";
+            }, 3000);
+        });
+});
+</script>
+</body>
+</html>
