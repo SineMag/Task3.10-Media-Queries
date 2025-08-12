@@ -1,4 +1,4 @@
-// Tab switching
+// Tab Switching
 const tabs = document.querySelectorAll('.tab');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -37,7 +37,6 @@ function calculateTransferTime() {
   }[speedUnit];
 
   const timeInSeconds = sizeInBits / speedInBps;
-
   const minutes = Math.floor(timeInSeconds / 60);
   const seconds = Math.round(timeInSeconds % 60);
 
@@ -53,13 +52,15 @@ function convertTemperature() {
 
   let result;
 
-  if (from === to) result = value;
-  else if (from === 'C' && to === 'F') result = (value * 9/5) + 32;
-  else if (from === 'C' && to === 'K') result = value + 273.15;
-  else if (from === 'F' && to === 'C') result = (value - 32) * 5/9;
-  else if (from === 'F' && to === 'K') result = ((value - 32) * 5/9) + 273.15;
-  else if (from === 'K' && to === 'C') result = value - 273.15;
-  else if (from === 'K' && to === 'F') result = ((value - 273.15) * 9/5) + 32;
+  if (from === to) {
+    result = value;
+  } else if (from === 'C') {
+    result = to === 'F' ? (value * 9 / 5) + 32 : value + 273.15;
+  } else if (from === 'F') {
+    result = to === 'C' ? (value - 32) * 5 / 9 : ((value - 32) * 5 / 9) + 273.15;
+  } else if (from === 'K') {
+    result = to === 'C' ? value - 273.15 : ((value - 273.15) * 9 / 5) + 32;
+  }
 
   document.getElementById('temp-result').textContent = result.toFixed(2);
 }
@@ -67,10 +68,12 @@ function convertTemperature() {
 // Scientific Notation Converter
 function convertScientific() {
   const number = parseFloat(document.getElementById('sciInput').value);
+
   if (isNaN(number)) {
     document.getElementById('sci-result').textContent = 'Invalid input';
     return;
   }
+
   document.getElementById('sci-result').textContent = number.toExponential(2);
 }
 
@@ -87,7 +90,6 @@ function convertMetric() {
     kg: 1000
   };
 
-  // Check if converting between valid groups (length vs mass)
   const isLength = ['m', 'km'].includes(from) && ['m', 'km'].includes(to);
   const isMass = ['g', 'kg'].includes(from) && ['g', 'kg'].includes(to);
 
@@ -96,6 +98,6 @@ function convertMetric() {
     return;
   }
 
-  const converted = (value * metricConversions[from]) / metricConversions[to];
-  document.getElementById('metric-result').textContent = converted.toFixed(4);
+  const result = (value * metricConversions[from]) / metricConversions[to];
+  document.getElementById('metric-result').textContent = result.toFixed(4);
 }
