@@ -24,6 +24,11 @@ function calculateTransferTime() {
   const speed = parseFloat(document.getElementById('speed').value);
   const speedUnit = document.getElementById('speedUnit').value;
 
+  if (!isFinite(size) || !isFinite(speed) || size <= 0 || speed <= 0) {
+    document.getElementById('transfer-time').textContent = 'Enter valid positive size and speed';
+    return;
+  }
+
   const sizeInBits = {
     KB: size * 1024 * 8,
     MB: size * 1024 * 1024 * 8,
@@ -35,6 +40,11 @@ function calculateTransferTime() {
     Mbps: speed * 1000000,
     Gbps: speed * 1000000000
   }[speedUnit];
+
+  if (!isFinite(sizeInBits) || !isFinite(speedInBps) || speedInBps <= 0) {
+    document.getElementById('transfer-time').textContent = 'Check units and inputs';
+    return;
+  }
 
   const timeInSeconds = sizeInBits / speedInBps;
   const minutes = Math.floor(timeInSeconds / 60);
@@ -50,6 +60,11 @@ function convertTemperature() {
   const from = document.getElementById('tempFrom').value;
   const to = document.getElementById('tempTo').value;
 
+  if (!isFinite(value)) {
+    document.getElementById('temp-result').textContent = 'Invalid input';
+    return;
+  }
+
   let result;
 
   if (from === to) {
@@ -62,7 +77,7 @@ function convertTemperature() {
     result = to === 'C' ? value - 273.15 : ((value - 273.15) * 9 / 5) + 32;
   }
 
-  document.getElementById('temp-result').textContent = result.toFixed(2);
+  document.getElementById('temp-result').textContent = isFinite(result) ? result.toFixed(2) : 'Invalid input';
 }
 
 // Scientific Notation Converter
@@ -83,6 +98,11 @@ function convertMetric() {
   const from = document.getElementById('metricFrom').value;
   const to = document.getElementById('metricTo').value;
 
+  if (!isFinite(value)) {
+    document.getElementById('metric-result').textContent = 'Enter a valid number';
+    return;
+  }
+
   const metricConversions = {
     m: 1,
     km: 1000,
@@ -99,5 +119,5 @@ function convertMetric() {
   }
 
   const result = (value * metricConversions[from]) / metricConversions[to];
-  document.getElementById('metric-result').textContent = result.toFixed(4);
+  document.getElementById('metric-result').textContent = isFinite(result) ? result.toFixed(4) : 'Invalid input';
 }

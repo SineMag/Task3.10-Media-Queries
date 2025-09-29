@@ -13,6 +13,11 @@ body {
   min-height: 100vh;
 }
 
+/* Ensure main grows to push footer to the bottom */
+main {
+  flex: 1;
+}
+
 .navbar {
   background-color: #333;
   color: #fff;
@@ -111,6 +116,16 @@ body {
 .footer-right a {
   color: #fff;
   text-decoration: none;
+}
+
+/* External link style replacing previous inline styles */
+.mlab-link {
+  color: #333333;
+  text-decoration: none;
+}
+.mlab-link:hover,
+.mlab-link:focus {
+  text-decoration: underline;
 }
 
 @media (max-width: 1024px) {
