@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   background-color: #f4f4f4;
 }
 
@@ -16,7 +16,7 @@ body {
 }
 
 .navbar a button {
-  background-color: #4B4BBA;
+  background-color: #4b4bba;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -30,7 +30,7 @@ body {
   padding: 2rem;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -56,7 +56,7 @@ header {
 }
 
 .tab.active {
-  background: #4B4BBA;
+  background: #4b4bba;
   color: white;
 }
 
@@ -80,7 +80,9 @@ form {
   margin-top: 5px;
 }
 
-input, select, button {
+input,
+select,
+button {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 5px;
@@ -88,7 +90,7 @@ input, select, button {
 }
 
 button[type="button"] {
-  background-color: #4B4BBA;
+  background-color: #4b4bba;
   color: white;
   border: none;
   cursor: pointer;

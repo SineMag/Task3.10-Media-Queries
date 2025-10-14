@@ -1,62 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <h3><a href="./index.html">Portfolio</a></h3>
-        <ul>
-            <li><a href="./index.html">Home</a></li>            
-            <li><a href="#">About</a></li>
-            <li><a href="./projects.html">Projects</a></li>
-            <li><a href="./ContactUS.html">Contact</a></li>
-        </ul>
+      <h3><a href="./index.html">Portfolio</a></h3>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./ContactUS.html">Contact</a></li>
+      </ul>
     </nav>
 
     <main>
-    <section class="hero">
-                <div class="hero-image">
-            <img src="./Frame 1.png" alt="Portrait of Sinenhlanhla Magubane">                                           
+      <section class="hero">
+        <div class="hero-image">
+          <img src="./Frame 1.png" alt="Portrait of Sinenhlanhla Magubane" />
         </div>
         <div class="hero-text">
-            <h1>Sinenhlanhla Magubane</h1>
-            <h3>Software Developer</h3>
-            <p>Passionate about creating innovative solutions. Current attendent at one of the best technological insitute, <a class="mlab-link" href="https://www.mlab.co.za" target="_blank" rel="noopener noreferrer">mLab Southern Africa.</a></p>
+          <h1>Sinenhlanhla Magubane</h1>
+          <h3>Software Developer</h3>
+          <p>
+            Passionate about creating innovative solutions. Current attendent at
+            one of the best technological insitute,
+            <a
+              class="mlab-link"
+              href="https://www.mlab.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+              >mLab Southern Africa.</a
+            >
+          </p>
         </div>
+      </section>
 
-    </section>
+      <section class="about">
+        <h2>About Me</h2>
+        <p>
+          I'm a dedicated software developer with a passion for creating elegant
+          solutions to complex problems. Currently honing my skills at mLab
+          Southern Africa, I'm committed to continuous learning and innovation
+          in the tech industry.
+        </p>
+      </section>
 
-    
-    <section class="columns">
-        <div class="column">
-            <h2>Column 1</h2>
-            
-        </div>
-        <div class="column">
-            <h2>Column 2</h2>
-           
-        </div>
-        <div class="column">
-            <h2>Column 3</h2>
-        </div>
-    </section>
-</main>
-  
-    <footer class="footer">
-        <div class="footer-left">
-            <p>&copy; 2025 MySite</p>
-        </div>
-        <div class="footer-right">
+      <section class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Frontend Development</h3>
             <ul>
-                <li><a href="./ContactUS.html">Contact us </a></li>
-                <li><a href="./privacyPolicy.html">Privacy Policy</a></li>
+              <li>HTML5 & CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>Responsive Design</li>
+              <li>React.js</li>
             </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Backend Development</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>Python</li>
+              <li>Nest.js</li>
+              <li>Database Management</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Tools & Technologies</h3>
+            <ul>
+              <li>Git & GitHub</li>
+              <li>VS Code</li>
+              <li>Figma</li>
+            </ul>
+          </div>
         </div>
+      </section>
+
+      <section class="experience">
+        <h2>Experience</h2>
+        <div class="experience-timeline">
+          <div class="experience-item">
+            <h3>Software Development Trainee</h3>
+            <p class="company">mLab Southern Africa</p>
+            <p class="date">2024 - Present</p>
+            <ul>
+              <li>
+                Developing full-stack web applications using modern frameworks
+              </li>
+              <li>Collaborating with teams on innovative tech projects</li>
+              <li>Learning industry best practices and design patterns</li>
+              <li>
+                Building practical solutions including converter tools and
+                responsive designs
+              </li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <h3>Personal Projects</h3>
+            <p class="company">Self-Directed</p>
+            <p class="date">Ongoing</p>
+            <ul>
+              <li>Created a comprehensive Converter Hub with multiple tools</li>
+              <li>Developed responsive portfolio website with modern UI/UX</li>
+              <li>Implemented privacy-compliant contact forms and policies</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="education">
+        <h2>Education & Training</h2>
+        <div class="education-item">
+          <h3>Software Development Programme</h3>
+          <p class="institution">mLab Southern Africa</p>
+          <p class="date">2024 - Present</p>
+          <p class="description">
+            Intensive training in full-stack development, software engineering
+            principles, and professional skills development.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <p>&copy; 2025 MySite</p>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="./ContactUS.html">Contact us </a></li>
+          <li><a href="./privacyPolicy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

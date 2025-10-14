@@ -1,122 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Converter Hub</title>
-  <link rel="stylesheet" href="converter.css">
-</head>
-<body>
-
-  <nav class="navbar">
-    <a href="./index.html"><button>Portfolio</button></a>
-  </nav>
-
-  <main class="container">
-    <header>
-      <h1>Converter Hub</h1>
-      <p>A collection of useful conversion tools.</p>
-    </header>
-
-    <!-- Tabs -->
-    <nav class="tabs">
-      <button class="tab active" data-tab="file-transfer">File Transfer</button>
-      <button class="tab" data-tab="temperature">Temperature</button>
-      <button class="tab" data-tab="scientific">Scientific</button>
-      <button class="tab" data-tab="metric">Metric</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Converter Hub</title>
+    <link rel="stylesheet" href="converter.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="./index.html"><button>Portfolio</button></a>
     </nav>
 
-    <!-- File Transfer Tab -->
-    <section id="file-transfer" class="tab-content active">
-      <h2>File Transfer Time Calculator</h2>
-      <form>
-        <label>File Size:
-          <div class="input-group">
-            <input type="number" id="fileSize" value="1" />
-            <select id="fileUnit">
-              <option value="KB">KB</option>
-              <option value="MB">MB</option>
-              <option value="GB">GB</option>
-            </select>
+    <main class="container">
+      <header>
+        <h1>Converter Hub</h1>
+        <p>A collection of useful conversion tools.</p>
+      </header>
+
+      <!-- Tabs -->
+      <nav class="tabs">
+        <button class="tab active" data-tab="file-transfer">
+          File Transfer
+        </button>
+        <button class="tab" data-tab="temperature">Temperature</button>
+        <button class="tab" data-tab="scientific">Scientific</button>
+        <button class="tab" data-tab="metric">Metric</button>
+      </nav>
+
+      <!-- File Transfer Tab -->
+      <section id="file-transfer" class="tab-content active">
+        <h2>File Transfer Time Calculator</h2>
+        <form>
+          <label
+            >File Size:
+            <div class="input-group">
+              <input type="number" id="fileSize" value="1" />
+              <select id="fileUnit">
+                <option value="KB">KB</option>
+                <option value="MB">MB</option>
+                <option value="GB">GB</option>
+              </select>
+            </div>
+          </label>
+          <label
+            >Internet Speed:
+            <div class="input-group">
+              <input type="number" id="speed" value="20" />
+              <select id="speedUnit">
+                <option value="Kbps">Kbps</option>
+                <option value="Mbps">Mbps</option>
+                <option value="Gbps">Gbps</option>
+              </select>
+            </div>
+          </label>
+          <button type="button" onclick="calculateTransferTime()">
+            Calculate
+          </button>
+          <div class="result">
+            Estimated Time: <span id="transfer-time">0 seconds</span>
           </div>
-        </label>
-        <label>Internet Speed:
-          <div class="input-group">
-            <input type="number" id="speed" value="20" />
-            <select id="speedUnit">
-              <option value="Kbps">Kbps</option>
-              <option value="Mbps">Mbps</option>
-              <option value="Gbps">Gbps</option>
+        </form>
+      </section>
+
+      <!-- Temperature Converter -->
+      <section id="temperature" class="tab-content">
+        <h2>Temperature Converter</h2>
+        <form>
+          <label
+            >Temperature:
+            <input type="number" id="tempInput" value="0" />
+            <select id="tempFrom">
+              <option value="C">Celsius</option>
+              <option value="F">Fahrenheit</option>
+              <option value="K">Kelvin</option>
             </select>
+            to
+            <select id="tempTo">
+              <option value="C">Celsius</option>
+              <option value="F">Fahrenheit</option>
+              <option value="K">Kelvin</option>
+            </select>
+          </label>
+          <button type="button" onclick="convertTemperature()">Convert</button>
+          <div class="result">Result: <span id="temp-result">0</span></div>
+        </form>
+      </section>
+
+      <!-- Scientific Notation -->
+      <section id="scientific" class="tab-content">
+        <h2>Scientific Notation Converter</h2>
+        <form>
+          <label
+            >Number:
+            <input type="number" id="sciInput" />
+          </label>
+          <button type="button" onclick="convertScientific()">Convert</button>
+          <div class="result">
+            Scientific Notation: <span id="sci-result">0</span>
           </div>
-        </label>
-        <button type="button" onclick="calculateTransferTime()">Calculate</button>
-        <div class="result">Estimated Time: <span id="transfer-time">0 seconds</span></div>
-      </form>
-    </section>
+        </form>
+      </section>
 
-    <!-- Temperature Converter -->
-    <section id="temperature" class="tab-content">
-      <h2>Temperature Converter</h2>
-      <form>
-        <label>Temperature:
-          <input type="number" id="tempInput" value="0" />
-          <select id="tempFrom">
-            <option value="C">Celsius</option>
-            <option value="F">Fahrenheit</option>
-            <option value="K">Kelvin</option>
-          </select>
-          to
-          <select id="tempTo">
-            <option value="C">Celsius</option>
-            <option value="F">Fahrenheit</option>
-            <option value="K">Kelvin</option>
-          </select>
-        </label>
-        <button type="button" onclick="convertTemperature()">Convert</button>
-        <div class="result">Result: <span id="temp-result">0</span></div>
-      </form>
-    </section>
+      <!-- Metric Converter -->
+      <section id="metric" class="tab-content">
+        <h2>Metric Unit Converter</h2>
+        <form>
+          <label
+            >Value:
+            <input type="number" id="metricInput" />
+            <select id="metricFrom">
+              <option value="m">Meters</option>
+              <option value="km">Kilometers</option>
+              <option value="g">Grams</option>
+              <option value="kg">Kilograms</option>
+            </select>
+            to
+            <select id="metricTo">
+              <option value="m">Meters</option>
+              <option value="km">Kilometers</option>
+              <option value="g">Grams</option>
+              <option value="kg">Kilograms</option>
+            </select>
+          </label>
+          <button type="button" onclick="convertMetric()">Convert</button>
+          <div class="result">
+            Converted Value: <span id="metric-result">0</span>
+          </div>
+        </form>
+      </section>
+    </main>
 
-    <!-- Scientific Notation -->
-    <section id="scientific" class="tab-content">
-      <h2>Scientific Notation Converter</h2>
-      <form>
-        <label>Number:
-          <input type="number" id="sciInput" />
-        </label>
-        <button type="button" onclick="convertScientific()">Convert</button>
-        <div class="result">Scientific Notation: <span id="sci-result">0</span></div>
-      </form>
-    </section>
-
-    <!-- Metric Converter -->
-    <section id="metric" class="tab-content">
-      <h2>Metric Unit Converter</h2>
-      <form>
-        <label>Value:
-          <input type="number" id="metricInput" />
-          <select id="metricFrom">
-            <option value="m">Meters</option>
-            <option value="km">Kilometers</option>
-            <option value="g">Grams</option>
-            <option value="kg">Kilograms</option>
-          </select>
-          to
-          <select id="metricTo">
-            <option value="m">Meters</option>
-            <option value="km">Kilometers</option>
-            <option value="g">Grams</option>
-            <option value="kg">Kilograms</option>
-          </select>
-        </label>
-        <button type="button" onclick="convertMetric()">Convert</button>
-        <div class="result">Converted Value: <span id="metric-result">0</span></div>
-      </form>
-    </section>
-
-  </main>
-
-  <script src="converter.js"></script>
-</body>
+    <script src="converter.js"></script>
+  </body>
 </html>
